@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+}
+
+.App-content {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-main {
+  color: white;
+  font-size: 12px;
+  max-width: 1000px;
+  width: 100%;
+  padding-left: 10%;
+}
+a {
+  color: #09f;
+  font-size: 24px;
+  text-decoration: none;
+}
+.App-title {
+  color: orange;
+  font-size: 12px;
+  max-width: 1000px;
+  width: 100%;
+  padding-left: 10%;
+}
+.App-results {
+  flex-shrink: 2;
+}
+
+@media (min-width: 640px) {
+  .App-main {
+    padding: 0 10em;
+    position: sticky;
+    top: 0;
+    width: 40%;
+  }
+}

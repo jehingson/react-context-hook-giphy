@@ -1,0 +1,55 @@
+:root {
+  --results-columns: 2;
+}
+
+.gif {
+  margin-bottom: 0.5em;
+}
+.gif-link {
+  color: #000;
+  display: block;
+  text-decoration: none;
+  position: relative;
+  width: 100%;
+}
+
+.gif-link em {
+  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  left: 0.5em;
+  bottom: 1em;
+  font-size: 12px;
+  margin: 0;
+  color: #fff;
+}
+
+.gif img {
+  width: 100%;
+  object-fit: contain;
+  vertical-align: top;
+}
+
+.listaGifs {
+  column-count: var(--results-columns);
+  column-gap: 0.5em;
+}
+
+.listaGifs-item {
+  -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+  page-break-inside: avoid; /* Firefox */
+  break-inside: avoid; /* IE 10+ */
+  background-color: #eee;
+  display: inline-block;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  :root {
+    --results-columns: 3;
+  }
+}
+
+@media (min-width: 800px) {
+  :root {
+    --results-columns: 4;
+  }
+}
