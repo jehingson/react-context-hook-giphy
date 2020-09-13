@@ -1,64 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
-import getTrendingTemaService from "servicios/getTrendingTermaService";
-import Categoria from "./Categoria";
+import React, { Suspense } from "react";
+import useNearScreen from "hooks/useNeaeScreen";
+import Spinner from "./Spinner";
 
-function TrendingSearches() {
-  const [trends, setTrends] = useState([]);
-  useEffect(() => {
-    async function getTendecias() {
-      const res = await getTrendingTemaService();
-      console.log("data", res);
-      setTrends(res);
-    }
-    getTendecias();
-  }, []);
-
-  return (
-    <>
-      <Categoria name="Tendencias" option={trends} />
-    </>
-  );
-}
-function useNearScreen({ elementRef }) {
-  const [isNearScreen, setShow] = useState(false);
-
-  useEffect(function () {
-    let observer;
-    const onchange = (entradas, observer) => {
-      const el = entradas[0];
-      console.log(el.isIntersecting);
-      if (el.isIntersecting) {
-        setShow(true);
-        observer.disconnect();
-      }
-    };
-    Promise.resolve(
-      typeof IntersectionObserver !== "undefined"
-        ? IntersectionObserver
-        : import("intersection-observer")
-    ).then(() => {
-      observer = new IntersectionObserver(onchange, {
-        rootMargin: "100px",
-      });
-    });
-
-    observer = new IntersectionObserver(onchange, {
-      rootMargin: "100px",
-    });
-
-    observer.observe(elementRef.current);
-
-    return () => observer && observer.disconnect();
-  }, []);
-
-  return isNearScreen;
-}
+const TrendingSearchesOn = React.lazy(() => import("./TrendingSearchesOn"));
 
 export default function LazyTrending() {
-  const elementRef = useRef();
-  const isNearScreen = useNearScreen({ elementRef });
+  const { isNearScreen, elementRef } = useNearScreen({ distancia: "0px" });
+  console.log(isNearScreen);
 
   return (
-    <div ref={elementRef}>{isNearScreen ? <TrendingSearches /> : null}</div>
+    <div ref={elementRef}>
+      <Suspense fallback={<Spinner />}>
+        {isNearScreen ? <TrendingSearchesOn /> : <Spinner />}
+      </Suspense>
+    </div>
   );
 }

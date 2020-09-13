@@ -5,7 +5,11 @@ import { useGifs } from "hooks/useGifs";
 
 function ListGifs({ params }) {
   const { keyword } = params;
-  const { loading, gifs } = useGifs({ keyword });
+  const { loading, gifs, setPage } = useGifs({ keyword });
+
+  const handleNextPage = () => {
+    setPage((prevPage) => prevPage + 1);
+  };
 
   return (
     <>
@@ -17,6 +21,8 @@ function ListGifs({ params }) {
           <ListaGifsTrue gifs={gifs} />
         </>
       )}
+      <br />
+      <button onClick={handleNextPage}>Get next page</button>
     </>
   );
 }
