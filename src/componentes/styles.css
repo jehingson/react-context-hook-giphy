@@ -32,6 +32,7 @@
 .listaGifs {
   column-count: var(--results-columns);
   column-gap: 0.5em;
+  min-height: 100vh;
 }
 
 .listaGifs-item {

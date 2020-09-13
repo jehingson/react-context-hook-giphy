@@ -1,6 +1,6 @@
 import React from "react";
-import Gif from "../componentes/Gif";
-import useGlobalGif from "../hooks/useGlobalGIf";
+import Gif from "componentes/Gif";
+import useGlobalGif from "hooks/useGlobalGIf";
 
 function Pefil({ params }) {
   const value = useGlobalGif();

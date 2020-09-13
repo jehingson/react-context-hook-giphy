@@ -1,12 +1,12 @@
 import React from "react";
-import "./App.css";
-import "./componentes/styles.css";
-import ListaGifs from "./componentes/ListaGifs";
+import "App.css";
+import "componentes/styles.css";
+import ListaGifs from "componentes/ListaGifs";
 import { Link, Route } from "wouter";
-import Home from "./paginas/Home";
-import Perfil from "./paginas/Perfil";
-import StaticContext from "./Context/StaticContext";
-import { GifsContextProvider } from "./Context/GifsContextProvider";
+import Home from "paginas/Home";
+import Perfil from "paginas/Perfil";
+import StaticContext from "Context/StaticContext";
+import { GifsContextProvider } from "Context/GifsContextProvider";
 
 function App() {
   /* const state = useState('');

@@ -1,10 +1,4 @@
-const GIFS = [
-  "https://cdn4.chrono24.com/images/topmodels/2846-alz5vjoi11mxlc54imf27mlj-Original.png?auto=compress&amp;h=305",
-  "https://cdn4.chrono24.com/images/topmodels/2846-alz5vjoi11mxlc54imf27mlj-Original.png?auto=compress&amp;h=305",
-];
-
-const API_KEY = "3bFHlFy2ctScUWnf5WEZBFAwJefL1d0P";
-const API_URL = "https://api.giphy.com/v1";
+import { API_URL, API_KEY } from "./configuracion";
 
 export default async function getGifs({ keyword = "morty" } = {}) {
   const apiURL = `${API_URL}/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=9&offset=0&rating=g&lang=es`;
